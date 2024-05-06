@@ -9,11 +9,20 @@ resource "azurerm_storage_account" "tfazstg" {
   name                     = var.StorageAccount
   resource_group_name      = azurerm_resource_group.tfazrg.name
   location                 = var.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
+  account_tier             = var.account_tier
+  account_replication_type = var.account_replication_type
 }
 
 resource "azurerm_storage_container" "tfazcont01" {
-  name                 = var.STGContainer
+  name                 = var.STGContName
   storage_account_name = azurerm_storage_account.tfazstg.id
+}
+
+## KeyVault
+resource "azurerm_key_vault" "tfazkv" {
+  name                = var.kVName
+  location            = var.location
+  resource_group_name = azurerm_resource_group.tfazrg.name
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+  sku_name            = var.sku_name
 }

@@ -24,7 +24,20 @@ variable "account_replication_type" {
   default = "LRS"
 }
 
-variable "STGContainer" {
+variable "STGContName" {
   type    = string
   default = "tfazcont01"
+}
+
+## KeyVault
+variable "kVName" {
+  type    = string
+  default = "tfazkv01"
+
+}
+
+variable "sku_name" {
+  type    = string
+  default = "standard"
+
 }
