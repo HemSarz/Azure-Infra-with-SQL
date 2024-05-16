@@ -41,3 +41,9 @@ variable "sku_name" {
   default = "standard"
 
 }
+
+#SPN
+variable "SPNName" {
+  type    = string
+  default = "tfazspn"
+}
