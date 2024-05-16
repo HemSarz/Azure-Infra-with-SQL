@@ -30,8 +30,11 @@ resource "azurerm_key_vault" "tfazkv" {
 resource "azurerm_key_vault_access_policy" "spacc" {
   key_vault_id    = azurerm_key_vault.tfazkv.id
   tenant_id       = data.azurerm_client_config.current.tenant_id
-  object_id       = data.azuread_service_principal.tfazspn.object_id
+  object_id       = data.azuread_service_principal.tfazsp.object_id
   key_permissions = ["Get", "List", "Set"]
 }
 
+resource "azurerm_virtual_network" "tfazvnet" {
+  name = ""
 
+}
