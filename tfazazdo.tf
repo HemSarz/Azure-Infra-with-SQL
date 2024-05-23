@@ -38,7 +38,7 @@ resource "azurerm_key_vault_access_policy" "spacc" {
 ## VNetwork
 
 resource "azurerm_virtual_network" "tfazvnet" {
-  name                = "vnet01"
+  name                = "vnet001"
   location            = var.location
   resource_group_name = azurerm_resource_group.tfazrg.name
   address_space       = ["10.0.0.0/16"]
@@ -107,8 +107,8 @@ resource "azurerm_network_security_group" "sshAllow" {
 
 ##NSGAssociateNIC
 resource "azurerm_subnet_network_security_group_association" "sshAllowAssoc" {
-subnet_id = azurerm_subnet.sub01.id
-network_security_group_id = azurerm_network_security_group.sshAllow.id
+  subnet_id                 = azurerm_subnet.sub01.id
+  network_security_group_id = azurerm_network_security_group.sshAllow.id
 }
 
 ## VM
