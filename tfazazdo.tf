@@ -38,7 +38,7 @@ resource "azurerm_key_vault_access_policy" "spacc" {
 ## VNetwork
 
 resource "azurerm_virtual_network" "tfazvnet" {
-  name                = "vnet01"
+  name                = "vnet0001"
   location            = var.location
   resource_group_name = azurerm_resource_group.tfazrg.name
   address_space       = ["10.0.0.0/16"]
