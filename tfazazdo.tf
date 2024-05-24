@@ -35,6 +35,16 @@ resource "azurerm_key_vault_access_policy" "spacc" {
   secret_permissions = ["Get", "List", "Set"]
 }
 
+## SPN Access to backend KV
+
+resource "azurerm_key_vault_access_policy" "tfazbckndap" {
+  key_vault_id       = data.azurerm_key_vault.bckndKV.id
+  tenant_id          = data.azurerm_client_config.current.tenant_id
+  object_id          = data.azuread_service_principal.tfazsp.object_id
+  key_permissions    = ["Get", "List"]
+  secret_permissions = ["Get", "List"]
+}
+
 ## VNetwork
 
 resource "azurerm_virtual_network" "tfazvnet" {
