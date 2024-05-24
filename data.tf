@@ -6,14 +6,25 @@ data "azuread_service_principal" "tfazsp" {
   display_name = "tfazsp"
 }
 
+## BackendKVRG
+
+data "azurerm_resource_group" "tfazrgbackend" {
+  name = "tfazbackend"
+}
+
+data "azurerm_key_vault" "bckndKV" {
+  name                = "tfazkv"
+  resource_group_name = data.azurerm_resource_group.tfazrgbackend.name
+}
+
 #Fetch SSHKey
-data "azurerm_key_vault" "tfazkv" {
-  name                = azurerm_key_vault.tfazkv.name
-  resource_group_name = azurerm_resource_group.tfazrg.name
+data "azurerm_key_vault" "tfazbackendkvsec" {
+  name                = "tfazkv"
+  resource_group_name = data.azurerm_resource_group.tfazrgbackend.name
 }
 
 data "azurerm_key_vault_secret" "sshKey" {
   name         = "tfazlnx"
-  key_vault_id = data.azurerm_key_vault.tfazkv.id
+  key_vault_id = data.azurerm_key_vault.bckndKV.id
 
 }
