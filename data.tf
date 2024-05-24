@@ -18,13 +18,10 @@ data "azurerm_key_vault" "bckndKV" {
 }
 
 #Fetch SSHKey
-data "azurerm_key_vault" "tfazbackendkvsec" {
-  name                = "tfazkv"
-  resource_group_name = data.azurerm_resource_group.tfazrgbackend.name
-}
-
 data "azurerm_key_vault_secret" "sshKey" {
   name         = "tfazlnx"
   key_vault_id = data.azurerm_key_vault.bckndKV.id
+
+  depends_on = [azurerm_key_vault_access_policy.tfazbckndap]
 
 }
