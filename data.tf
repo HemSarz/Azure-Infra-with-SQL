@@ -11,6 +11,11 @@ data "azurerm_key_vault" "bckndKV" {
   resource_group_name = data.azurerm_resource_group.tfazrgbackend.name
 }
 
+data "azurerm_resource_group" "tfazrgbackend" {
+  name = "tfazbackend"
+}
+
+
 /* ## BackendKVRG
 
 data "azurerm_resource_group" "tfazrgbackend" {
