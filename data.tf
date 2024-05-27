@@ -22,4 +22,4 @@ data "azurerm_key_vault_secret" "sshKey" {
 
   depends_on = [azurerm_key_vault_access_policy.tfazbckndap]
 
-}*/
+}
