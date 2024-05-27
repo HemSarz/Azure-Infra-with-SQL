@@ -6,7 +6,12 @@ data "azuread_service_principal" "tfazsp" {
   display_name = "tfazsp"
 }
 
-## BackendKVRG
+data "azurerm_key_vault" "bckndKV" {
+  name                = "tfazkv"
+  resource_group_name = data.azurerm_resource_group.tfazrgbackend.name
+}
+
+/* ## BackendKVRG
 
 data "azurerm_resource_group" "tfazrgbackend" {
   name = "tfazbackend"
@@ -24,4 +29,4 @@ data "azurerm_key_vault_secret" "sshKey" {
 
   depends_on = [azurerm_key_vault_access_policy.tfazbckndap]
 
-}
+}*/
