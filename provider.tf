@@ -1,8 +1,9 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
-    version = "3.102.0" }
+      source  = "hashicorp/azurerm"
+      version = "3.102.0"
+    }
 
     azuread = {
       source  = "hashicorp/azuread"
@@ -19,7 +20,11 @@ terraform {
 provider "azurerm" {
   features {
     key_vault {
-      purge_soft_delete_on_destroy = false
+      purge_soft_delete_on_destroy = true
     }
   }
+}
+
+provider "azuread" {
+  tenant_id = var.tenant_id
 }

@@ -47,3 +47,9 @@ variable "SPNName" {
   type    = string
   default = "tfazspn"
 }
+
+variable "tenant_id" {
+  type    = string
+  default = "7afe75ee-20fb-4e79-93a6-9881f786e2d8"
+
+}
