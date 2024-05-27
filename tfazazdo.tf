@@ -27,7 +27,7 @@ resource "azurerm_key_vault" "tfazkv" {
   sku_name            = var.sku_name
 }
 
-bdvsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssxc /*resource "azurerm_key_vault_access_policy" "spacc" {
+/*resource "azurerm_key_vault_access_policy" "spacc" {
   key_vault_id       = azurerm_key_vault.tfazkv.id
   tenant_id          = data.azurerm_client_config.current.tenant_id
   object_id          = data.azuread_service_principal.tfazsp.object_id

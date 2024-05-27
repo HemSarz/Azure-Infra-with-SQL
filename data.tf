@@ -20,6 +20,4 @@ data "azurerm_key_vault_secret" "sshKey" {
   name         = "tfazlnx"
   key_vault_id = data.azurerm_key_vault.bckndKV.id
 
-  depends_on = [azurerm_key_vault_access_policy.tfazbckndap]
-
 }
