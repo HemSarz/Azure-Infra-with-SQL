@@ -21,3 +21,8 @@ data "azurerm_key_vault_secret" "sshKey" {
   key_vault_id = data.azurerm_key_vault.bckndKV.id
 
 }
+
+output "ssh_key" {
+  value     = data.azurerm_key_vault_secret.sshKey.value
+  sensitive = true
+}

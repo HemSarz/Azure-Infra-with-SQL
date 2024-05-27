@@ -130,7 +130,7 @@ resource "azurerm_linux_virtual_machine" "web" {
   admin_username        = "adminuser"
   network_interface_ids = [azurerm_network_interface.webintf.id]
   admin_ssh_key {
-    username   = "admin"
+    username   = "adminuser"
     public_key = data.azurerm_key_vault_secret.sshKey.value
   }
 
