@@ -16,7 +16,7 @@ data "azurerm_resource_group" "tfazrgbackend" {
 }
 
 data "azurerm_storage_account" "bckndstg" {
-  name                = "tfazstg"
+  name                = "tfazbackendstg"
   resource_group_name = data.azurerm_resource_group.tfazrgbackend.name
 }
 
