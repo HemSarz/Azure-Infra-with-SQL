@@ -2,6 +2,7 @@
 resource "azurerm_resource_group" "tfazrg" {
   name     = var.rgName
   location = var.location
+
 }
 
 ## Storage Account

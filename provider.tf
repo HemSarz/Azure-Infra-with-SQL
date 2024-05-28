@@ -15,6 +15,14 @@ terraform {
       version = ">= 3.6.1"
     }
   }
+
+  backend "azurerm" {
+    resource_group_name  = "tfazbackend"
+    storage_account_name = "tfazbackendstg"
+    container_name       = "contbknd"
+    key                  = "terraform.tfstate"
+  }
+
 }
 
 provider "azurerm" {
@@ -28,3 +36,4 @@ provider "azurerm" {
 provider "azuread" {
   tenant_id = var.tenant_id
 }
+

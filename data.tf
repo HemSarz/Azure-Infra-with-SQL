@@ -15,6 +15,11 @@ data "azurerm_resource_group" "tfazrgbackend" {
   name = "tfazbackend"
 }
 
+data "azurerm_storage_account" "bckndstg" {
+  name                = "tfazstg"
+  resource_group_name = data.azurerm_resource_group.tfazrgbackend.name
+}
+
 #Fetch SSHKey
 data "azurerm_key_vault_secret" "sshKey" {
   name         = "tfazlnx"
